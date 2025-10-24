@@ -4,7 +4,7 @@ import logoImg from "../assets/logo.jpg"
 import { FaSignInAlt } from 'react-icons/fa';
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm w-11/12 mx-auto py-4 bg-bl">
+        <div className="navbar shadow-sm w-11/12 mx-auto py-4 bg-black">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Navbar = () => {
                         <NavLink to="/games">Games</NavLink>
                     </ul>
                 </div>
-                <img className='h-32' src={logoImg} alt="" />
+                <img className='h-28' src={logoImg} alt="" />
             </div>
 
             <div className="navbar-center hidden lg:flex">
