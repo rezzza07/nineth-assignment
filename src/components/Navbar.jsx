@@ -23,7 +23,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-8 text-[#7dd3fc]">
+                <ul className="menu menu-horizontal px-1 gap-8 font-bold text-[#7dd3fc]">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>
                     <NavLink to="/community">Community</NavLink>
@@ -31,7 +31,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end ">
-                <a className="btn bg-[#7dd3fc] ">Login</a>
+                <a className="btn bg-[#7dd3fc] font-bold text-black ">Login</a>
             </div>
         </div>
 
