@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Error = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center px-4">
+        <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-black">
             <div className="text-center">
                 <div className="text-9xl font-bold text-sky-500 mb-4">404</div>
                 <h1 className="text-4xl font-bold mb-4">Game Not Found</h1>

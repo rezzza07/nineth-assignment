@@ -1,7 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import logoImg from "../assets/logo.jpg"
 import { FaSignInAlt } from 'react-icons/fa';
+
 const Navbar = () => {
     return (
         <div className="navbar shadow-sm w-11/12 mx-auto py-4 bg-black">
@@ -32,7 +33,8 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end ">
-                <a className="btn bg-sky-500 text-white font-black "><FaSignInAlt className='text-white' />Login</a>
+                <Link to='/auth/login' className="btn bg-sky-500 text-white font-black "><FaSignInAlt className='text-white' />Login</Link>
+                
             </div>
         </div>
 

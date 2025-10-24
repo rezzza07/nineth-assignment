@@ -2,16 +2,24 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
-  name: "dark";
+  name: "black";
   default: true;
+
+  /* Primary & accent colors */
   --color-primary: #7dd3fc;
   --color-secondary: teal;
+
+  /* 100% true black mode */
+  --color-base-100: #000000; /* page background */
+  --color-base-200: #050505; /* card/input background */
+  --color-base-300: #0a0a0a; /* hover/contrast surface */
+  --color-neutral: #ffffff;  /* text contrast */
 }
 
-*{
-    font-family: "Orbitron", sans-serif;
+* {
+  font-family: "Orbitron", sans-serif;
 }
 
-a.active{
-  @apply underline decoration-sky-500 text-sky-500 hover:text-sky-300
+a.active {
+  @apply underline decoration-sky-500 text-sky-500 hover:text-sky-300;
 }
