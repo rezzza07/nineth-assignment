@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Allgames = () => {
@@ -39,12 +40,15 @@ const Allgames = () => {
 
             {/* Info Section */}
             <div className="p-5">
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-sky-400">
                 {game.title}
               </h3>
-              <p className="text-sm text-gray-400 mt-1">
-                ⭐ {game.rating.toFixed(1)}{" "}
+              <p className="text-sm text-yellow-400 mt-3">
+                <div className="flex gap-2"><FaStar size={20}></FaStar> {game.rating.toFixed(1)}{" "}
                 <span className="text-gray-500">({game.developer})</span>
+                </div>
+                
+                
               </p>
 
               <p className="mt-3 text-gray-300 text-sm line-clamp-2">

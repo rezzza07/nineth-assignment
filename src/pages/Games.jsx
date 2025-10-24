@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 
 const Games = () => {
     return (
-        <div>
+        <div className='bg-black'>
             <Navbar></Navbar>
             
             <Allgames></Allgames>

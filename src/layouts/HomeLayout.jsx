@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import PopularGames from '../components/PopularGames';
 import NewsLetter from '../components/NewsLetter';
+import Footer from '../components/Footer';
 
 
 const HomeLayout = () => {
@@ -21,7 +22,9 @@ const HomeLayout = () => {
 
                 </Outlet>
             </main>
-            <footer></footer>
+            <footer>
+                <Footer></Footer>
+            </footer>
         </div>
     );
 };
