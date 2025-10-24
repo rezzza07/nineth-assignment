@@ -37,8 +37,8 @@ const Banner = () => {
 
 
                         <div className="flex items-center gap-4">
-                            <a href="" className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-semibold text-black"
-                                style={{ backgroundColor: "#7dd3fc" }}> View More</a>
+                            <a href="" className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-semibold text-black bg-[#7dd3fc]"
+                                > View More</a>
 
 
                             <a href=""
