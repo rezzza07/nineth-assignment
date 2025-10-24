@@ -13,5 +13,5 @@
 }
 
 a.active{
-  @apply underline decoration-[#7dd3fc]
+  @apply underline decoration-sky-500 text-sky-500 hover:text-sky-300
 }

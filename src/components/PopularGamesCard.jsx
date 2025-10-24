@@ -1,36 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 
-const Allgames = () => {
+const PopularGamesCard = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     fetch("/games.json")
       .then((res) => res.json())
-      .then((data) => setGames(data.games))
+      .then((data) => {
+        // Sort games by rating (highest first) and take top 3
+        const sorted = data.games.sort((a, b) => b.rating - a.rating).slice(0, 3);
+        setGames(sorted);
+      })
       .catch((err) => console.error("Error loading games:", err));
   }, []);
 
   return (
     <section className="bg-black text-white py-16 px-8">
-      <h2 className="text-4xl font-bold mb-4 text-center text-sky-400">
-        All Games
+      <h2 className="text-3xl font-bold mb-3 text-center text-sky-400">
+        Popular Games
       </h2>
-       <p className='text-2xl mb-10 text-center'>Explore our complete collection of games</p>
-                 
+      <p className="text-center mb-8">Discover the most highly-rated games</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-11/12 mx-auto min-h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {games.map((game) => (
-          <div
+          <Link
+            to={`/games/${game.id}`}
             key={game.id}
-            className="relative bg-[#0d0d0d] rounded-xl overflow-hidden shadow-lg border border-gray-800 hover:scale-[1.03] hover:shadow-sky-500/30 transition-all duration-300"
+            className="relative bg-[#0d0d0d] rounded-xl overflow-hidden shadow-lg border border-gray-800 hover:scale-[1.03] hover:shadow-sky-500/30 transition-all duration-300 cursor-pointer block"
           >
-            {/* Genre badge */}
+            {/* Genre Badge */}
             <span className="absolute top-3 right-3 bg-sky-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
               {game.genre}
             </span>
 
-            {/* Image */}
+            {/* Game Image */}
             <img
               src={game.image}
               alt={game.title}
@@ -46,23 +50,16 @@ const Allgames = () => {
                 ⭐ {game.rating.toFixed(1)}{" "}
                 <span className="text-gray-500">({game.developer})</span>
               </p>
-
               <p className="mt-3 text-gray-300 text-sm line-clamp-2">
                 {game.description}
               </p>
-
-              {/* View Details button */}
-              <Link to={`/games/${game.id}`}>
-                <button className="w-full mt-4 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 rounded-lg transition">
-                  View Details
-                </button>
-              </Link>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
   );
 };
 
-export default Allgames;
+export default PopularGamesCard;
+

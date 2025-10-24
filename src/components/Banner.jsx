@@ -1,5 +1,6 @@
 import React from 'react';
 import heroImg from "../assets/hero.jpg"
+import { Link } from 'react-router';
 
 
 const Banner = () => {
@@ -13,7 +14,7 @@ const Banner = () => {
                     src={heroImg}
                     alt="hero"
                     className="absolute inset-0 w-full h-full object-cover opacity-80 filter brightness-[0.95] contrast-[1.05]"
-                     />
+                />
 
 
                 {/* Left content */}
@@ -37,13 +38,15 @@ const Banner = () => {
 
 
                         <div className="flex items-center gap-4">
-                            <a href="" className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-semibold text-black bg-[#7dd3fc]"
+                            <Link to="/games">
+                                <a href="" className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-semibold text-white bg-sky-500"
                                 > View More</a>
+                            </Link>
 
 
                             <a href=""
-                                className="inline-flex items-center gap-3 px-6 py-3 rounded-md border-2 font-semibold text-[#7dd3fc] border-[#7dd3fc] bg-transparent"
-                                >Purchase Game </a>
+                                className="inline-flex items-center gap-3 px-6 py-3 rounded-md border-2 font-semibold text-sky-500 border-sky-500 bg-transparent"
+                            >Purchase Game </a>
                         </div>
                     </div>
                 </div>

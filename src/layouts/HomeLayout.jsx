@@ -3,6 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
+import PopularGames from '../components/PopularGames';
 
 
 const HomeLayout = () => {
@@ -13,6 +14,7 @@ const HomeLayout = () => {
             </header>
             <main>
                 <section> <Banner></Banner> </section>
+                <section> <PopularGames></PopularGames> </section>
                 <Outlet></Outlet>
             </main>
             <footer></footer>
