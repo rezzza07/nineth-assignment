@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { FaGoogle } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+
 import { Link } from 'react-router';
 
 
@@ -74,13 +74,13 @@ export default function Login() {
                 </div>
 
                 <button className="w-full btn bg-white text-sky-400 font-semibold text-[18px] border-[#e5e5e5]">
-                    <FcGoogle></FcGoogle>Google
+                   <FcGoogle></FcGoogle> Google
                 </button>
 
 
                 <p className="text-gray-400 text-sm text-center mt-6">
                     Don't have an account?{' '}
-                    <Link to="/register" className="text-sky-400 hover:underline">
+                    <Link to="/auth/register" className="text-sky-400 hover:underline">
                         Register</Link>
 
                 </p>
