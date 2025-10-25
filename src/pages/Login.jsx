@@ -10,12 +10,8 @@ export default function Login() {
         password: '',
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
+ 
+    const handleLogin = (e) => {
         e.preventDefault();
         alert(`Logged in as ${formData.email}`);
         setFormData({ email: '', password: '' });
@@ -27,27 +23,27 @@ export default function Login() {
                 <h2 className="text-3xl font-bold mb-2">Welcome Back</h2>
                 <p className="text-gray-400 mb-8">Sign in to your GameHub account</p>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleLogin} className="space-y-4">
+                    {/* Email */}
                     <div>
                         <label className="block text-sm mb-1">Email</label>
                         <input
                             type="email"
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            
                             placeholder="your@email.com"
                             className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
                             required
                         />
                     </div>
 
+                    {/* Password */}
                     <div>
                         <label className="block text-sm mb-1">Password</label>
                         <input
                             type="password"
                             name="password"
-                            value={formData.password}
-                            onChange={handleChange}
+                            
                             placeholder="********"
                             className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
                             required

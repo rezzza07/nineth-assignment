@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoImg from "../assets/logo.jpg"
 import { FaSignInAlt } from 'react-icons/fa';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = use(AuthContext);
+    const handleLogOut = () => {
+        console.log("user trying to logout")
+        logOut().then(() => {
+            alert("You logged out successfully")
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
     return (
         <div className="navbar shadow-sm w-11/12 mx-auto py-4 bg-black">
+            {user && user.email}
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,8 +44,12 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end ">
-                <Link to='/auth/login' className="btn bg-sky-500 text-white font-black "><FaSignInAlt className='text-white' />Login</Link>
-                
+                {user ? <button onClick={handleLogOut} className='btn bg-sky-500 text-white font-black '>  LogOut</button>
+                    : <Link to='/auth/login' className="btn bg-sky-500 text-white font-black ">
+                        <FaSignInAlt className='text-white' />Login</Link>}
+
+
+
             </div>
         </div>
 

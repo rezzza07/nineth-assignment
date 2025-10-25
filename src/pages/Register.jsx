@@ -1,27 +1,35 @@
-import { useState } from "react";
+
+import { use } from "react";
 import { FcGoogle } from "react-icons/fc";
 
 import { Link } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 
 export default function Register() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    photo: "",
-    password: "",
+  
+const {createUser, setUser} = use(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    console.log({name,photo,email,password});
+    createUser(email,password)
+     .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        setUser(user);
+     })
+     .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Account created for ${formData.name}`);
-    setFormData({ name: "", email: "", photo: "", password: "" });
   };
 
   return (
@@ -30,14 +38,12 @@ export default function Register() {
         <h2 className="text-3xl font-bold mb-2 text-white">Create Account</h2>
         <p className="text-gray-400 mb-8">Join GameHub and start playing</p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           <div>
             <label className="block text-sm mb-1">Full Name</label>
             <input
               type="text"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
               placeholder="Your Name"
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
               required
@@ -49,8 +55,6 @@ export default function Register() {
             <input
               type="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
               placeholder="your@email.com"
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
               required
@@ -62,8 +66,7 @@ export default function Register() {
             <input
               type="url"
               name="photo"
-              value={formData.photo}
-              onChange={handleChange}
+              
               placeholder="https://example.com/photo.jpg"
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
             />
@@ -74,8 +77,6 @@ export default function Register() {
             <input
               type="password"
               name="password"
-              value={formData.password}
-              onChange={handleChange}
               placeholder="********"
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
               required
@@ -84,8 +85,7 @@ export default function Register() {
 
           <button
             type="submit"
-            className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold transition"
-          >
+            className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold transition">
             Create Account
           </button>
         </form>
