@@ -8,6 +8,8 @@ import AuthLayout from "../layouts/AuthLayout";
 
 import PrivateRoute from "../Provider/PrivateRoute";
 import GamesDetails from "../pages/GamesDetails";
+import ForgotPassword from "../pages/ForgotPassword";
+
 
 
 const router = createBrowserRouter([
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/auth/register",
                 element: <Register></Register>,
+            },
+            {
+                path: "/auth/forgot-password",
+                element: <ForgotPassword></ForgotPassword>
             },
         ]
     },
