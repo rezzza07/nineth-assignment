@@ -1,10 +1,10 @@
-import { use, useState } from "react";
+import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export default function Register() {
-  const { createUser, setUser, updateUser } = use(AuthContext);
+  const { createUser, setUser, updateUser, googleSignIn } = useContext(AuthContext);
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
@@ -14,43 +14,58 @@ export default function Register() {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    const email = form.email.value.trim();
+    const photo = form.photo.value.trim();
+    const password = form.password.value;
+
+    
     if (name.length < 4) {
       setNameError("Name should be more than 4 characters");
       return;
     } else {
       setNameError("");
     }
-    const email = form.email.value.trim();
-    const photo = form.photo.value.trim();
-    const password = form.password.value;
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
     if (!passwordRegex.test(password)) {
       setPasswordError(
-        "Password must be at least 6 characters long, include uppercase, lowercase, and atleast special character."
+        "Password must be at least 6 characters long, include uppercase, lowercase, and a special character."
       );
       return;
     } else {
       setPasswordError("");
     }
 
-
-    console.log({ name, photo, email, password });
-
+    
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate("/");
-          }).catch((error) => {
-            console.log(error);
+          })
+          .catch((error) => {
+            console.error(error);
             setUser(user);
           });
       })
       .catch((error) => {
         alert(error.message);
+      });
+  };
+
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        console.log("Google User:", result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Google sign-in failed. Please try again.");
       });
   };
 
@@ -112,7 +127,6 @@ export default function Register() {
             )}
           </div>
 
-
           <button
             type="submit"
             className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold transition"
@@ -121,18 +135,19 @@ export default function Register() {
           </button>
         </form>
 
-
         <div className="my-6 flex items-center">
           <hr className="flex-grow border-gray-700" />
           <span className="text-gray-500 mx-2 text-sm">Or continue with</span>
           <hr className="flex-grow border-gray-700" />
         </div>
 
-
-        <button className="w-full btn bg-white text-sky-400 font-semibold text-[18px] border-[#e5e5e5] flex items-center justify-center gap-2 py-2 rounded-lg">
-          <FcGoogle /> Google
+        
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full bg-white text-sky-600 font-semibold text-[18px] py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-100"
+        >
+          <FcGoogle className="text-2xl" /> Google
         </button>
-
 
         <p className="text-gray-400 text-sm text-center mt-6">
           Already have an account?{" "}
