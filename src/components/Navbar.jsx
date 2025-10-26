@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoImg from "../assets/logo.jpg"
 import { AuthContext } from '../Provider/AuthProvider';
+
 import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         console.log("user trying to logout")
         logOut().then(() => {
-            alert("You logged out successfully")
+            // alert("You logged out successfully")
         }).catch((error) => {
             console.log(error);
         });
@@ -48,11 +49,12 @@ const Navbar = () => {
                     <>
 
                         {user.photoURL && (
-                            <img
+                            <Link to="/profile"><img
                                 src={user.photoURL}
                                 alt="User"
                                 className="w-10 h-10 rounded-full border-2 border-sky-500"
-                            />
+                            /></Link>
+                            
                         )}
                         <button
                             onClick={handleLogOut}
@@ -65,7 +67,9 @@ const Navbar = () => {
                     <>
 
 
-<Link to="/profile"><FaUser className="w-10 h-10 rounded-full border-2 border-sky-400"/></Link>
+                       <FaUser className="w-10 h-10 rounded-full border-2 border-sky-400 cursor-pointer"></FaUser>
+
+
 
                         <Link to="/auth/login" className="btn bg-sky-500 text-white font-black flex items-center gap-2">
                             Login

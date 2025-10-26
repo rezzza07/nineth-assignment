@@ -11,7 +11,15 @@
       "description": "Experience the next evolution of football with HyperMotionV, improved career modes, and enhanced realism across all stadiums.",
       "releaseDate": "2024-09-27",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 8.4
+      "reviews": 8.4,
+      "download": "https://www.ea.com/games/ea-sports-fc",
+      "requirements": {
+        "os": "Windows 10 - 64-Bit (Latest Update)",
+        "processor": "AMD Ryzen 5 1600 or Intel Core i5 6600k",
+        "memory": "8 GB RAM",
+        "graphics": "AMD RX 570 or Nvidia GTX 1050 Ti",
+        "storage": "100 GB available space"
+      }
     },
     {
       "id": 2,
@@ -24,7 +32,15 @@
       "description": "A 5v5 character-based tactical shooter where precise gunplay meets unique agent abilities in intense competitive matches.",
       "releaseDate": "2020-06-02",
       "platforms": ["PC"],
-      "reviews": 9.0
+      "reviews": 9.0,
+      "download": "https://playvalorant.com/en-gb/",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i3-9100",
+        "memory": "4 GB RAM",
+        "graphics": "Intel UHD 630",
+        "storage": "7 GB available space"
+      }
     },
     {
       "id": 3,
@@ -37,7 +53,15 @@
       "description": "Build, battle, and survive in Fortnite’s vibrant ever-evolving world packed with events, collaborations, and creative modes.",
       "releaseDate": "2017-07-21",
       "platforms": ["PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile"],
-      "reviews": 8.8
+      "reviews": 8.8,
+      "download": "https://www.fortnite.com/",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-7300U",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GTX 960",
+        "storage": "20 GB available space"
+      }
     },
     {
       "id": 4,
@@ -50,7 +74,15 @@
       "description": "An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification.",
       "releaseDate": "2020-12-10",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 8.5
+      "reviews": 8.5,
+      "download": "https://www.cyberpunk.net/bd/en/",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-3570K or AMD FX-8310",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GTX 780 3GB or AMD Radeon RX 470",
+        "storage": "70 GB HDD (SSD recommended)"
+      }
     },
     {
       "id": 5,
@@ -63,7 +95,15 @@
       "description": "Rise, Tarnished, and let grace guide thee. A new adventure begins in the Lands Between.",
       "releaseDate": "2022-02-25",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 9.2
+      "reviews": 9.2,
+      "download": "https://en.bandainamcoent.eu/elden-ring/elden-ring",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-8400",
+        "memory": "12 GB RAM",
+        "graphics": "NVIDIA GeForce GTX 1060",
+        "storage": "60 GB available space"
+      }
     },
     {
       "id": 6,
@@ -76,7 +116,15 @@
       "description": "Explore infinite procedurally generated star systems and create any character you want.",
       "releaseDate": "2023-09-06",
       "platforms": ["PC", "Xbox"],
-      "reviews": 8.1
+      "reviews": 8.1,
+      "download": "https://bethesda.net/en/game/starfield",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-10600K",
+        "memory": "16 GB RAM",
+        "graphics": "NVIDIA GTX 1660 Super",
+        "storage": "50 GB available space"
+      }
     },
     {
       "id": 7,
@@ -89,7 +137,15 @@
       "description": "Experience intense combat in the ultimate battle royale. Drop in, fight, and emerge victorious in Warzone.",
       "releaseDate": "2021-08-03",
       "platforms": ["PC", "PlayStation"],
-      "reviews": 9.5
+      "reviews": 9.5,
+      "download": "https://www.callofduty.com/warzone",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-2500K or AMD Ryzen R5 1600X",
+        "memory": "12 GB RAM",
+        "graphics": "NVIDIA GeForce GTX 970 / AMD Radeon R9 390",
+        "storage": "175 GB available space"
+      }
     },
     {
       "id": 8,
@@ -102,7 +158,15 @@
       "description": "Experience the wizarding world in the 1800s as a student at Hogwarts School of Witchcraft and Wizardry.",
       "releaseDate": "2023-02-10",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 7.8
+      "reviews": 7.8,
+      "download": "https://www.hogwartslegacy.com/en-us",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-6600",
+        "memory": "16 GB RAM",
+        "graphics": "NVIDIA GTX 970 / AMD RX 480",
+        "storage": "85 GB available space"
+      }
     },
     {
       "id": 9,
@@ -115,7 +179,15 @@
       "description": "Embark on a new adventure in Hyrule and discover what awaits in this sequel to Breath of the Wild.",
       "releaseDate": "2023-05-12",
       "platforms": ["Nintendo Switch"],
-      "reviews": 9.6
+      "reviews": 9.6,
+      "download": "https://zelda.nintendo.com/",
+      "requirements": {
+        "os": "Nintendo Switch OS",
+        "processor": "Custom Nvidia Tegra X1",
+        "memory": "4 GB RAM",
+        "graphics": "Integrated Nvidia GPU",
+        "storage": "32 GB available space"
+      }
     },
     {
       "id": 10,
@@ -128,7 +200,15 @@
       "description": "Forge your own path as Jin Sakai, a samurai warrior fighting to reclaim Tsushima Island from Mongol invaders.",
       "releaseDate": "2020-07-17",
       "platforms": ["PlayStation", "PC"],
-      "reviews": 9.1
+      "reviews": 9.1,
+      "download": "https://www.ea.com/games/ea-sports-fc",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-6600",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GTX 970",
+        "storage": "50 GB available space"
+      }
     },
     {
       "id": 11,
@@ -141,7 +221,15 @@
       "description": "Experience the story of Basim, a cunning street thief seeking answers and justice in ninth-century Baghdad.",
       "releaseDate": "2023-10-05",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 7.9
+      "reviews": 7.9,
+      "download": "https://store.epicgames.com/en-US/p/assassins-creed-mirage",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-4460 or AMD Ryzen 5 1600",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GTX 970 or AMD RX 480",
+        "storage": "50 GB available space"
+      }
     },
     {
       "id": 12,
@@ -154,20 +242,36 @@
       "description": "Experience the epic tale of life in America’s unforgiving heartland during the end of the wild west era.",
       "releaseDate": "2018-10-26",
       "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 9.7
+      "reviews": 9.7,
+      "download": "https://www.rockstargames.com/reddeadredemption2",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K or AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "NVIDIA GTX 1060 6GB or AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
     },
     {
       "id": 13,
-      "title": "Alan Wake 2",
-      "developer": "Remedy Entertainment",
-      "genre": "Survival Horror",
-      "rating": 4.6,
-      "price": 59.99,
-      "image": "https://i.ibb.co.com/7JxF5SRF/images-1.jpg",
-      "description": "A psychological horror experience that blurs the lines between reality and nightmare in a haunting narrative journey.",
-      "releaseDate": "2023-10-27",
-      "platforms": ["PC", "PlayStation", "Xbox"],
-      "reviews": 8.9
+      "title": "Minecraft",
+      "developer": "Mojang Studios",
+      "genre": "Sandbox",
+      "rating": 4.8,
+      "price": 26.95,
+      "image": "https://i.ibb.co.com/WpWZ7N3x/Hero-8c18da7c19a1a8811ddb.jpg",
+      "description": "Create, explore, and survive in a world made of blocks. Multiplayer or solo adventures await in this iconic sandbox game.",
+      "releaseDate": "2011-11-18",
+      "platforms": ["PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile"],
+      "reviews": 9.3,
+      "download": "https://www.minecraft.net/en-us",
+      "requirements": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i3-3210",
+        "memory": "4 GB RAM",
+        "graphics": "Intel HD Graphics 4000",
+        "storage": "1 GB available space"
+      }
     }
   ]
 }

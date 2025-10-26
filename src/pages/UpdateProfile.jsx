@@ -1,16 +1,16 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import UpdateProfileDetails from '../components/UpdateProfileDetails';
 import Footer from '../components/Footer';
-import MyDetails from '../components/MyDetails';
 
-const MyProfile = () => {
+const UpdateProfile = () => {
     return (
         <div className='bg-black'>
             <Navbar></Navbar>
-            <MyDetails></MyDetails>
+            <UpdateProfileDetails></UpdateProfileDetails>
             <Footer></Footer>
         </div>
     );
 };
 
-export default MyProfile;
+export default UpdateProfile;

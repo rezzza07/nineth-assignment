@@ -1,6 +1,6 @@
 import React from "react";
 import { CiHeart } from "react-icons/ci";
-import { FaDownload, FaStar } from "react-icons/fa";
+import { FaArrowLeft, FaDownload, FaStar } from "react-icons/fa";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { Link } from "react-router";
 
@@ -19,7 +19,7 @@ const GameDetailsCard = ({ game }) => {
                     {/* Download Button */}
                     <button className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2.5 rounded-lg font-semibold transition">
                         <FaDownload size={20} />
-                        Download
+                        <a href={game.download}>Download</a>
                     </button>
 
                     {/* Favorite Button */}
@@ -69,18 +69,18 @@ const GameDetailsCard = ({ game }) => {
                     <div className="grid md:grid-cols-2 gap-4">
                         {/* Game Info */}
                         <div className="border border-gray-800 rounded-lg p-4">
-                            <h3 className="font-semibold text-lg mb-2">Game Information</h3>
+                            <h3 className="font-bold text-lg space-y-10 mb-2">Game Information</h3>
                             <p>
-                                <span className="text-gray-400">Category:</span>{" "}
-                                <span className="text-white font-medium"> <br />  {game.genre}</span>
+                                <span className="text-white font-semibold ">Category:</span>{" "}
+                                <span className="text-gray-500 font-semibold"> <br />  {game.genre}</span>
                             </p>
                             <p>
-                                <span className="text-gray-400">Developer:</span>{" "}
-                                <span className="text-white font-medium"><br /> {game.developer}</span>
+                                <span className="text-white font-semibold">Developer:</span>{" "}
+                                <span className="text-gray-500 font-semibold"><br /> {game.developer}</span>
                             </p>
                             <p>
-                                <span className="text-gray-400">Rating:</span>{" "}
-                                <span className="text-yellow-400 font-medium">
+                                <span className="text-white font-semibold">Rating:</span>{" "}
+                                <span className="text-yellow-400 font-semibold">
                                     <br /> {game.rating} / 5.0
                                 </span>
                             </p>
@@ -88,13 +88,13 @@ const GameDetailsCard = ({ game }) => {
 
                         {/* System Requirements */}
                         <div className="border border-gray-800 rounded-lg p-4">
-                            <h3 className="font-semibold text-lg mb-2">System Requirements</h3>
+                            <h3 className="font-bold text-lg mb-2 space-y-10">System Requirements</h3>
                             <ul className="text-gray-400 space-y-1">
-                                <li>OS: {game.requirements?.os}</li>
-                                <li>Processor: {game.requirements?.processor}</li>
-                                <li>Memory: {game.requirements?.memory}</li>
-                                <li>Graphics: {game.requirements?.graphics}</li>
-                                <li>Storage: {game.requirements?.storage}</li>
+                                <li><h1 className="font-semibold text-white">OS:</h1> {game.requirements?.os}</li>
+                                <li><h1 className="font-semibold text-white">Processor:</h1> {game.requirements?.processor}</li>
+                                <li><h1 className="font-semibold text-white">Memory:</h1> {game.requirements?.memory}</li>
+                                <li><h1 className="font-semibold text-white">Graphics:</h1> {game.requirements?.graphics}</li>
+                                <li><h1 className="font-semibold text-white">Storage:</h1> {game.requirements?.storage}</li>
                             </ul>
                         </div>
                     </div>
@@ -103,11 +103,11 @@ const GameDetailsCard = ({ game }) => {
 
             {/* Back Button */}
             <div className="max-w-6xl mx-auto mt-6">
-                <Link to="/games"
-
+                <Link
+                    to="/games"
                     className="px-5 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-medium transition"
                 >
-                    ← Back
+                    <FaArrowLeft className="inline mr-2" /> Back
                 </Link>
             </div>
         </div>

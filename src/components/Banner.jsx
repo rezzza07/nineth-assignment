@@ -57,7 +57,7 @@ const Banner = () => {
             <div className="flex items-center gap-4">
               <Link to="/games">
                 <span className="inline-flex items-center gap-3 px-6 py-3 rounded-md font-semibold text-white bg-sky-500 cursor-pointer">
-                  Download
+                  View More
                 </span>
               </Link>
 
