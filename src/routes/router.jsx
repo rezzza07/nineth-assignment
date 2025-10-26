@@ -5,6 +5,7 @@ import Games from "../pages/Games";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../layouts/AuthLayout";
+import GamesDetails from "../pages/GamesDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
     {
         path: "/games",
         element: <Games></Games>,
+        loader: () => fetch("/games.json"),
+    },
+    {
+        path: "/games-details/:id",
+        element: <GamesDetails></GamesDetails>,
         loader: () => fetch("/games.json"),
     },
     {

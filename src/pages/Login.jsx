@@ -1,20 +1,31 @@
-import { useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
 
+import { use } from 'react';
+import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+
 
 
 export default function Login() {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
-
- 
+const { signIn } = use(AuthContext);
     const handleLogin = (e) => {
+        
         e.preventDefault();
-        alert(`Logged in as ${formData.email}`);
-        setFormData({ email: '', password: '' });
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log({ email, password });
+        signIn(email,password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorCode,errorMessage);
+            });
+
     };
 
     return (
@@ -30,7 +41,7 @@ export default function Login() {
                         <input
                             type="email"
                             name="email"
-                            
+
                             placeholder="your@email.com"
                             className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
                             required
@@ -43,7 +54,7 @@ export default function Login() {
                         <input
                             type="password"
                             name="password"
-                            
+
                             placeholder="********"
                             className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
                             required
@@ -70,7 +81,7 @@ export default function Login() {
                 </div>
 
                 <button className="w-full btn bg-white text-sky-400 font-semibold text-[18px] border-[#e5e5e5]">
-                   <FcGoogle></FcGoogle> Google
+                    <FcGoogle></FcGoogle> Google
                 </button>
 
 

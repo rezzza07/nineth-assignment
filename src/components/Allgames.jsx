@@ -56,7 +56,7 @@ const Allgames = () => {
               </p>
 
               {/* View Details button */}
-              <Link to={`/games/${game.id}`}>
+              <Link to={`/games-details/${game.id}`}>
                 <button className="w-full mt-4 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 rounded-lg transition">
                   View Details
                 </button>
