@@ -1,8 +1,8 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoImg from "../assets/logo.jpg"
-import { FaSignInAlt, FaUser } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext);
@@ -16,7 +16,7 @@ const Navbar = () => {
     }
     return (
         <div className="navbar shadow-sm w-11/12 mx-auto py-4 bg-black">
-           
+
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,7 +46,7 @@ const Navbar = () => {
             <div className="navbar-end flex items-center gap-3">
                 {user ? (
                     <>
-                        
+
                         {user.photoURL && (
                             <img
                                 src={user.photoURL}
@@ -62,12 +62,19 @@ const Navbar = () => {
                         </button>
                     </>
                 ) : (
-                    <> <FaUser className="w-10 h-10 rounded-full border-2 border-sky-400"/>
-                        
+                    <>
+
+
+<Link to="/profile"><FaUser className="w-10 h-10 rounded-full border-2 border-sky-400"/></Link>
+
                         <Link to="/auth/login" className="btn bg-sky-500 text-white font-black flex items-center gap-2">
-                            <FaSignInAlt className="text-white" /> Login
+                            Login
+                        </Link>
+                        <Link to="/auth/register" className="btn bg-sky-500 text-white font-black flex items-center gap-2">
+                            Register
                         </Link>
                     </>
+
                 )}
             </div>
         </div>

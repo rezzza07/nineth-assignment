@@ -26,7 +26,8 @@ const PopularGamesCard = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {games.map((game) => (
           <Link
-            to={`/games/${game.id}`}
+            to={`/games-details/${game.id}`} 
+            // /games-details/:id
             key={game.id}
             className="relative bg-[#0d0d0d] rounded-xl overflow-hidden shadow-lg border border-gray-800 hover:scale-[1.03] hover:shadow-sky-500/30 transition-all duration-300 cursor-pointer block"
           >

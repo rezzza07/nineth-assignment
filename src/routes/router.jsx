@@ -9,6 +9,8 @@ import AuthLayout from "../layouts/AuthLayout";
 import PrivateRoute from "../Provider/PrivateRoute";
 import GamesDetails from "../pages/GamesDetails";
 import ForgotPassword from "../pages/ForgotPassword";
+import About from "../pages/About";
+import MyProfile from "../pages/MyProfile";
 
 
 
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout></HomeLayout>
+    },
+    {
+        path: "/about",
+        element: <About></About>
     },
     {
         path: "/auth",
@@ -46,6 +52,10 @@ const router = createBrowserRouter([
             <GamesDetails></GamesDetails>
         </PrivateRoute>,
         loader: () => fetch("/games.json"),
+    },
+    {
+        path: "/profile",
+        element: <MyProfile></MyProfile>
     },
     {
         path: "/*",
