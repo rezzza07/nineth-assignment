@@ -1,35 +1,57 @@
-
-import { use } from "react";
+import { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
-
 export default function Register() {
-  
-const {createUser, setUser} = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
+  const [nameError, setNameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const email = form.email.value;
-    const photo = form.photo.value;
+    if (name.length < 4) {
+      setNameError("Name should be more than 4 characters");
+      return;
+    } else {
+      setNameError("");
+    }
+    const email = form.email.value.trim();
+    const photo = form.photo.value.trim();
     const password = form.password.value;
-    console.log({name,photo,email,password});
-    createUser(email,password)
-     .then((result) => {
-        const user = result.user;
-        // console.log(user);
-        setUser(user);
-     })
-     .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage);
-  });
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
 
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "Password must be at least 6 characters long, include uppercase, lowercase, and atleast special character."
+      );
+      return;
+    } else {
+      setPasswordError("");
+    }
+
+
+    console.log({ name, photo, email, password });
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            navigate("/");
+          }).catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
@@ -39,6 +61,7 @@ const {createUser, setUser} = use(AuthContext);
         <p className="text-gray-400 mb-8">Join GameHub and start playing</p>
 
         <form onSubmit={handleRegister} className="space-y-4">
+          {/* Name */}
           <div>
             <label className="block text-sm mb-1">Full Name</label>
             <input
@@ -48,8 +71,10 @@ const {createUser, setUser} = use(AuthContext);
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
               required
             />
+            {nameError && <p className="text-xs text-red-500 mt-1">{nameError}</p>}
           </div>
 
+          {/* Email */}
           <div>
             <label className="block text-sm mb-1">Email</label>
             <input
@@ -61,17 +86,18 @@ const {createUser, setUser} = use(AuthContext);
             />
           </div>
 
+          {/* Photo URL */}
           <div>
             <label className="block text-sm mb-1">Photo URL</label>
             <input
               type="url"
               name="photo"
-              
               placeholder="https://example.com/photo.jpg"
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
             />
           </div>
 
+          {/* Password */}
           <div>
             <label className="block text-sm mb-1">Password</label>
             <input
@@ -81,14 +107,20 @@ const {createUser, setUser} = use(AuthContext);
               className="w-full bg-transparent border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
               required
             />
+            {passwordError && (
+              <p className="text-xs text-red-500 mt-1">{passwordError}</p>
+            )}
           </div>
+
 
           <button
             type="submit"
-            className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold transition">
+            className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold transition"
+          >
             Create Account
           </button>
         </form>
+
 
         <div className="my-6 flex items-center">
           <hr className="flex-grow border-gray-700" />
@@ -96,9 +128,11 @@ const {createUser, setUser} = use(AuthContext);
           <hr className="flex-grow border-gray-700" />
         </div>
 
-        <button className="w-full btn bg-white text-sky-400 font-semibold text-[18px] border-[#e5e5e5]">
-                   <FcGoogle></FcGoogle> Google
-                </button>
+
+        <button className="w-full btn bg-white text-sky-400 font-semibold text-[18px] border-[#e5e5e5] flex items-center justify-center gap-2 py-2 rounded-lg">
+          <FcGoogle /> Google
+        </button>
+
 
         <p className="text-gray-400 text-sm text-center mt-6">
           Already have an account?{" "}

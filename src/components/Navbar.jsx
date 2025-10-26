@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logoImg from "../assets/logo.jpg"
-import { FaSignInAlt } from 'react-icons/fa';
+import { FaSignInAlt, FaUser } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
     }
     return (
         <div className="navbar shadow-sm w-11/12 mx-auto py-4 bg-black">
-            {user && user.email}
+           
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,13 +43,32 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="navbar-end ">
-                {user ? <button onClick={handleLogOut} className='btn bg-sky-500 text-white font-black '>  LogOut</button>
-                    : <Link to='/auth/login' className="btn bg-sky-500 text-white font-black ">
-                        <FaSignInAlt className='text-white' />Login</Link>}
-
-
-
+            <div className="navbar-end flex items-center gap-3">
+                {user ? (
+                    <>
+                        
+                        {user.photoURL && (
+                            <img
+                                src={user.photoURL}
+                                alt="User"
+                                className="w-10 h-10 rounded-full border-2 border-sky-500"
+                            />
+                        )}
+                        <button
+                            onClick={handleLogOut}
+                            className="btn bg-sky-500 text-white font-black"
+                        >
+                            Log Out
+                        </button>
+                    </>
+                ) : (
+                    <> <FaUser className="w-10 h-10 rounded-full border-2 border-sky-400"/>
+                        
+                        <Link to="/auth/login" className="btn bg-sky-500 text-white font-black flex items-center gap-2">
+                            <FaSignInAlt className="text-white" /> Login
+                        </Link>
+                    </>
+                )}
             </div>
         </div>
 

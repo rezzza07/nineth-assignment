@@ -37,7 +37,8 @@ const router = createBrowserRouter([
     {
         path: "/games-details/:id",
         element: <PrivateRoute>
-            <GamesDetails></GamesDetails>        </PrivateRoute>,
+            <GamesDetails></GamesDetails>
+        </PrivateRoute>,
         loader: () => fetch("/games.json"),
     },
     {
