@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import heroImg1 from "../assets/hero1.webp";
-import heroImg2 from "../assets/hero2.jpg";
+
 import heroImg3 from "../assets/hero3.webp";
+import heroImg2 from "../assets/hero2.jpg";
+import heroImg1 from "../assets/hero1.webp";
+
 import { Link } from "react-router";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
@@ -18,7 +20,7 @@ const Banner = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="">
       <div className="relative overflow-hidden h-[520px] md:h-[620px] lg:h-[760px] flex items-center bg-[#0b0b0b]">
 
         {/* Background images (fade transition) */}

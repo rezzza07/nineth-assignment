@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const GameDetailsCard = ({ game }) => {
     return (
-        <div className="bg-black text-white min-h-screen p-6 md:p-12">
+        <div className="bg-black text-white w-11/12 mx-auto min-h-screen p-6 md:p-12">
             {/* Top Section */}
             <div className="grid md:grid-cols-2 gap-10 items-start max-w-6xl mx-auto bg-[#0d0d0d] p-8 rounded-2xl shadow-xl">
                 <div className="space-y-5">
@@ -86,7 +86,7 @@ const GameDetailsCard = ({ game }) => {
                             </p>
                         </div>
 
-                        {/* System Requirements */}
+                        {/* System  */}
                         <div className="border border-gray-800 rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 space-y-10">System Requirements</h3>
                             <ul className="text-gray-400 space-y-1">
@@ -101,7 +101,6 @@ const GameDetailsCard = ({ game }) => {
                 </div>
             </div>
 
-            {/* Back Button */}
             <div className="max-w-6xl mx-auto mt-6">
                 <Link
                     to="/games"

@@ -4,6 +4,7 @@ import { Link } from "react-router";
 
 const Allgames = () => {
   const [games, setGames] = useState([]);
+  
 
   useEffect(() => {
     fetch("/games.json")

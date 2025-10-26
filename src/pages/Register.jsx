@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -68,6 +68,9 @@ export default function Register() {
         alert("Google sign-in failed. Please try again.");
       });
   };
+  useEffect(() => {
+      document.title = "Register - GameHive";
+    }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black px-4 text-white font-[Orbitron]">

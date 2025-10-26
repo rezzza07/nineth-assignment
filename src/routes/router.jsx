@@ -12,6 +12,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import About from "../pages/About";
 import MyProfile from "../pages/MyProfile";
 import UpdateProfile from "../pages/UpdateProfile";
+import Loading from "../pages/Loading";
 
 
 
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
         path: "/games",
         element: <Games></Games>,
         loader: () => fetch("/games.json"),
+        hydrateFallbackElement: <Loading></Loading>,
     },
     {
         path: "/games-details/:id",
@@ -53,6 +55,7 @@ const router = createBrowserRouter([
             <GamesDetails></GamesDetails>
         </PrivateRoute>,
         loader: () => fetch("/games.json"),
+        hydrateFallbackElement: <Loading></Loading>,
     },
     {
         path: "/profile",

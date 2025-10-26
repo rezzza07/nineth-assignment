@@ -14,7 +14,7 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="bg-[#00141c] text-center py-16 px-6 rounded-2xl border border-[#022634]">
+    <div className="bg-[#00141c] text-center py-16 px-6 rounded-2xl border w-11/12 mx-auto  border-[#022634]">
       <h2 className="text-3xl font-bold text-white mb-3">Stay Updated</h2>
       <p className="text-gray-400 max-w-2xl mx-auto mb-8">
         Subscribe to our newsletter and get the latest game releases, exclusive deals, and gaming news delivered to your inbox.

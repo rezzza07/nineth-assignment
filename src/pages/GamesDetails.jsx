@@ -11,6 +11,7 @@ const GamesDetails = () => {
   useEffect(() => {
     const foundGame = data.games?.find((singleGame) => singleGame.id == id);
     setGame(foundGame);
+    document.title = "Game Details - GameHive";
   }, [data, id]);
 
   if (!game) {
@@ -20,7 +21,7 @@ const GamesDetails = () => {
       </div>
     );
   }
-
+ 
   return (
     <div className="min-h-screen bg-black text-white">
       <Navbar />

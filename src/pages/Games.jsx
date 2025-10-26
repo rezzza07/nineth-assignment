@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Allgames from '../components/Allgames';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Games = () => {
+    useEffect(() => {
+    document.title = "Games - GameHive";
+  }, []);
     return (
         <div className='bg-black'>
             <Navbar></Navbar>

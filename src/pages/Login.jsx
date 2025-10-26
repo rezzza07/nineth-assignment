@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -42,6 +42,9 @@ export default function Login() {
                 setError("Google login failed. Please try again.");
             });
     };
+    useEffect(() => {
+        document.title = "LogIn - GameHive";
+      }, []);
 
     return (
         <div className="min-h-screen flex items-center justify-center px-4">

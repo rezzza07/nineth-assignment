@@ -3,7 +3,7 @@ import logoImg from "../assets/logo.jpg"
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
     return (
-        <div>
+        <div className=''>
 
             <footer className="footer sm:footer-horizontal  text-base-content p-10 bg-black">
                 <nav>

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router';
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About Us - GameHive";
+  }, []);
     return (
+
         <div className='bg-black'>
             <Navbar></Navbar>
                 <section className="min-h-screen bg-black text-white flex items-center justify-center px-6 py-16">
@@ -52,7 +56,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
         <div className="mt-16">
           <Link to="/"
             
