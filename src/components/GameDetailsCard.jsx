@@ -30,8 +30,8 @@ const GameDetailsCard = ({ game }) => {
 
                     {/* Share Button */}
                     <button className="w-full flex items-center justify-center gap-2 border border-gray-700 py-2.5 rounded-lg hover:bg-gray-900 transition">
-                        <FaRegShareFromSquare className="text-sky-400"/>
- Share
+                        <FaRegShareFromSquare className="text-sky-400" />
+                        Share
                     </button>
                 </div>
                 {/* Right: Game Info */}
@@ -104,7 +104,7 @@ const GameDetailsCard = ({ game }) => {
             {/* Back Button */}
             <div className="max-w-6xl mx-auto mt-6">
                 <Link to="/games"
-                    
+
                     className="px-5 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg font-medium transition"
                 >
                     ← Back

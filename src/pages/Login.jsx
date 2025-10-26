@@ -1,31 +1,40 @@
 
-import { use } from 'react';
+import { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 
 
 
 export default function Login() {
-const { signIn } = use(AuthContext);
+    const [error, setError] = useState("");
+    const { signIn } = use(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogin = (e) => {
-        
+
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log({ email, password });
-        signIn(email,password)
+        signIn(email, password)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(`${location.state ? location.state : "/"}`);
+
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorCode,errorMessage);
+                
+                if (error.code === "auth/wrong-password") {
+                    setError(" Incorrect password. Please try again.");
+                } else if (error.code === "auth/user-not-found") {
+                    setError("No account found with this email.");
+                } else {
+                    setError("Login failed. Please check your credentials.");
+                }
             });
-
     };
 
     return (
@@ -66,11 +75,14 @@ const { signIn } = use(AuthContext);
                         </div>
                     </div>
 
+
+                    {error && <p className='text-red-500'>{error}</p>}
+
                     <button
                         type="submit"
                         className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-lg font-semibold"
                     >
-                        Sign In
+                        Login
                     </button>
                 </form>
 
