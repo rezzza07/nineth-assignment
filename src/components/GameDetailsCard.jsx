@@ -72,16 +72,16 @@ const GameDetailsCard = ({ game }) => {
                             <h3 className="font-semibold text-lg mb-2">Game Information</h3>
                             <p>
                                 <span className="text-gray-400">Category:</span>{" "}
-                                <span className="text-white font-medium">{game.genre}</span>
+                                <span className="text-white font-medium"> <br />  {game.genre}</span>
                             </p>
                             <p>
                                 <span className="text-gray-400">Developer:</span>{" "}
-                                <span className="text-white font-medium">{game.developer}</span>
+                                <span className="text-white font-medium"><br /> {game.developer}</span>
                             </p>
                             <p>
                                 <span className="text-gray-400">Rating:</span>{" "}
                                 <span className="text-yellow-400 font-medium">
-                                    {game.rating} / 5.0
+                                    <br /> {game.rating} / 5.0
                                 </span>
                             </p>
                         </div>
